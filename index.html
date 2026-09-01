@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<title>For Vaibhavi 💗</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #6d5570;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Trebuchet MS",
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe8f1,
+            #eee4ff,
+            #e0f3ff,
+            #fff4df
+        );
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: .6;
+    animation: blobMove 8s ease-in-out infinite alternate;
+}
+
+.blob1 {
+    width: 280px;
+    height: 280px;
+    background: #ffc7dd;
+    top: -100px;
+    left: -100px;
+}
+
+.blob2 {
+    width: 330px;
+    height: 330px;
+    background: #d7c6ff;
+    right: -120px;
+    bottom: -120px;
+    animation-delay: 2s;
+}
+
+.blob3 {
+    width: 200px;
+    height: 200px;
+    background: #c5eaff;
+    left: 40%;
+    top: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes blobMove {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(40px, -30px);
+    }
+}
+
+.float {
+    position: fixed;
+    font-size: 25px;
+    animation: floatUp linear infinite;
+    opacity: .7;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(-120px)
+            rotate(360deg);
+    }
+}
+
+.page {
+    position: fixed;
+    inset: 0;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(60px);
+    transition:
+        opacity .6s ease,
+        transform .6s ease;
+    z-index: 5;
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.content {
+    width: min(92%, 850px);
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    padding: 38px 28px;
+    background: rgba(255,255,255,.58);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(255,255,255,.75);
+    border-radius: 35px;
+    box-shadow: 0 25px 70px rgba(130,100,150,.18);
+}
+
+.content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #efb4d0;
+    border-radius: 20px;
+}
+
+.small-title {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: #b38db0;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: #e889b2;
+    text-shadow:
+        3px 3px 0 white,
+        0 0 25px rgba(239,130,174,.25);
+    line-height: 1;
+}
+
+h2 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #dc91b5;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+button {
+    border: none;
+    padding: 15px 28px;
+    margin: 10px 5px;
+    border-radius: 50px;
+    background:
+        linear-gradient(
+            135deg,
+            #ffb5d3,
+            #d5c1ff
+        );
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(220,150,190,.25);
+    transition: .3s;
+}
+
+button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.04);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+.big-heart {
+    font-size: 90px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.intro-text {
+    margin: 20px auto;
+    max-width: 550px;
+}
+
+.cake {
+    font-size: 100px;
+    animation: cakeFloat 2s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(2deg);
+    }
+}
+
+.name {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    color: #d986b0;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.message-box {
+    background: rgba(255,255,255,.55);
+    padding: 25px;
+    border-radius: 25px;
+    margin: 25px auto;
+    max-width: 700px;
+}
+
+.letter {
+    background: #fffaf2;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(100,80,80,.1);
+    text-align: left;
+    line-height: 2;
+}
+
+.letter p {
+    font-size: 1.05rem;
+}
+
+.gift {
+    font-size: 130px;
+    cursor: pointer;
+    display: inline-block;
+    animation: giftFloat 1.5s infinite;
+}
+
+@keyframes giftFloat {
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+}
+
+.final-message {
+    display: none;
+    animation: appear 1s ease;
+}
+
+.final-message.show {
+    display: block;
+}
+
+.love-message {
+    margin: 25px auto;
+    padding: 25px;
+    max-width: 650px;
+    background: rgba(255,255,255,.6);
+    border-radius: 25px;
+    color: #d86f9f;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: bold;
+    line-height: 1.6;
+    box-shadow: 0 10px 30px rgba(220,130,170,.15);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.navigation {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    background: rgba(255,255,255,.65);
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.dot.active {
+    width: 28px;
+    background: #e99abc;
+    border-radius: 10px;
+}
+
+@media(max-width:600px) {
+    .page {
+        padding: 12px;
+    }
+
+    .content {
+        width: 96%;
+        padding: 28px 17px;
+        max-height: 88vh;
+        border-radius: 28px;
+    }
+
+    p {
+        font-size: .98rem;
+    }
+
+    .big-heart {
+        font-size: 70px;
+    }
+
+    .cake {
+        font-size: 75px;
+    }
+
+    .letter {
+        padding: 22px;
+    }
+
+    button {
+        padding: 13px 21px;
+    }
+
+    .gift {
+        font-size: 100px;
+    }
+}
+
+@media(max-width:380px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+</div>
+
+<div class="float"
+     style="left:5%;animation-duration:9s;">
+     💗
+</div>
+
+<div class="float"
+     style="left:15%;animation-duration:12s;">
+     ✨
+</div>
+
+<div class="float"
+     style="left:30%;animation-duration:10s;">
+     🌸
+</div>
+
+<div class="float"
+     style="left:50%;animation-duration:13s;">
+     💖
+</div>
+
+<div class="float"
+     style="left:70%;animation-duration:11s;">
+     ⭐
+</div>
+
+<div class="float"
+     style="left:85%;animation-duration:8s;">
+     🌷
+</div>
+
+<div class="float"
+     style="left:42%;animation-duration:15s;">
+     🦋
+</div>
+
+<section
+    class="page active"
+    id="page1">
+
+```
+<div class="content">
+
+    <div class="big-heart">
+        💗
+    </div>
+
+    <div class="small-title">
+        HEY BITTO...
+    </div>
+
+    <h2>
+        I made something
+        <br>
+        for you 👀
+    </h2>
+
+    <p class="intro-text">
+        It's not just a birthday wish...
+        <br>
+        It's a tiny little journey
+        made especially for you.
+        <br>
+        Hope you like it. 🌸
+    </p>
+
+    <button onclick="startExperience()">
+        Open Your Surprise 🎁
+    </button>
+
+</div>
+```
+
+</section>
+
+<section
+    class="page"
+    id="page2">
+
+```
+<div class="content">
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <div class="small-title">
+        TODAY IS YOUR DAY
+    </div>
+
+    <h1>
+        HAPPY
+        <br>
+        BIRTHDAY
+    </h1>
+
+    <div class="name">
+        VAIBHAVI 💗
+    </div>
+
+    <div class="message-box">
+
+        <p>
+            MAY YOU GET WHATEVER YOU
+            WANT IN THIS FUCKIN LIFE. ✨
+        </p>
+
+        <br>
+
+        <p>
+            AND VERY HAPPY BIRTHDAY
+            TO YOU! 🥳
+        </p>
+
+    </div>
+
+    <button onclick="nextPage()">
+        There's More → 🌷
+    </button>
+
+</div>
+```
+
+</section>
+
+<section
+    class="page"
+    id="page3">
+
+```
+<div class="content">
+
+    <div class="small-title">
+        A LITTLE SOMETHING
+    </div>
+
+    <h2>
+        Dear Vaibhavi 💌
+    </h2>
+
+    <div class="letter">
+
+        <p>
+            MAYBE I DON'T SAY IT ENOUGH,
+            BUT NEVER UNDERESTIMATE YOURSELF. 🌷
+        </p>
+
+        <br>
+
+        <p>
+            YOU ARE SO CHARISMATIC AND
+            ABSOLUTELY AMAZING.
+
+            DON'T EVER LET THE WRONG PEOPLE
+            MAKE YOU FORGET THAT.
+        </p>
+
+        <br>
+
+        <p>
+            KEEP YOUR SMILE.
+            <br>
+            KEEP YOUR CHAOS.
+            <br>
+            KEEP BEING YOU.
+            💗
+        </p>
+
+        <br>
+
+        <p>
+            AND YES...
+            <br>
+            love you
+        </p>
+
+        <br>
+
+        <p>
+            JUST HAVE AN ABSOLUTELY
+            AMAZING YEAR AHEAD. ✨
+        </p>
+
+    </div>
+
+    <button onclick="nextPage()">
+        One Last Thing 🎁
+    </button>
+
+</div>
+```
+
+</section>
+
+<section
+    class="page"
+    id="page4">
+
+```
+<div class="content">
+
+    <div class="small-title">
+        FROM MY HEART
+    </div>
+
+    <h2>
+        One More Message 💗
+    </h2>
+
+    <div class="love-message">
+         LOVE YOU VAIBHAVI. 💕
+        <br>
+        ."If I could give you one thing in life, I would give you the ability to see yourself through my eyes, only then would you realise how special you are to me".
+        <br>
+        ALWAYS KEEP SMILING. 🌸
+    </div>
+
+    <button onclick="nextPage()">
+        Open Your Final Surprise 🎁
+    </button>
+
+</div>
+```
+
+</section>
+
+<section
+    class="page"
+    id="page5">
+
+```
+<div class="content">
+
+    <div class="small-title">
+        WAIT...
+    </div>
+
+    <h2>
+        There's still one surprise 👀
+    </h2>
+
+    <p>
+        Tap the gift. 🎁
+    </p>
+
+    <div
+        class="gift"
+        onclick="openGift()">
+        🎁
+    </div>
+
+    <div
+        class="final-message"
+        id="finalMessage">
+
+        <h1>
+            🎉
+        </h1>
+
+        <h2>
+            HAPPY BIRTHDAY
+            <br>
+            VAIBHAVI 💗
+        </h2>
+
+        <p>
+            May this year bring you
+            ridiculous amounts of happiness,
+            unforgettable memories,
+            and everything you've been
+            wishing for. 🌸
+        </p>
+
+        <br>
+
+        <p>
+             LOVE YOU FOREVER AND ALWAYS. 💕
+        </p>
+
+        <br>
+
+        <p>
+            Now go make this year yours. ✨
+        </p>
+
+        <br>
+
+        <button onclick="celebrate()">
+            MAKE IT RAIN CONFETTI 🎉
+        </button>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<div class="navigation">
+
+```
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+```
+
+</div>
+
+<script>
+
+let currentPage = 1;
+
+const totalPages = 5;
+
+const pages =
+    document.querySelectorAll(".page");
+
+const dots =
+    document.querySelectorAll(".dot");
+
+function showPage(number) {
+
+    if (
+        number < 1 ||
+        number > totalPages
+    ) {
+        return;
+    }
+
+    currentPage = number;
+
+    pages.forEach(
+        (page, index) => {
+            page.classList.toggle(
+                "active",
+                index === number - 1
+            );
+        }
+    );
+
+    dots.forEach(
+        (dot, index) => {
+            dot.classList.toggle(
+                "active",
+                index === number - 1
+            );
+        }
+    );
+}
+
+function nextPage() {
+
+    if (
+        currentPage < totalPages
+    ) {
+        showPage(
+            currentPage + 1
+        );
+    }
+
+}
+
+function previousPage() {
+
+    if (
+        currentPage > 1
+    ) {
+        showPage(
+            currentPage - 1
+        );
+    }
+
+}
+
+function startExperience() {
+
+    celebrate();
+
+    setTimeout(
+        () => {
+            showPage(2);
+        },
+        600
+    );
+
+}
+
+function celebrate() {
+
+    confetti({
+        particleCount: 180,
+        spread: 110,
+        startVelocity: 40,
+        origin: {
+            y: .65
+        }
+    });
+
+    setTimeout(
+        () => {
+            confetti({
+                particleCount: 100,
+                angle: 60,
+                spread: 80,
+                origin: {
+                    x: 0,
+                    y: .7
+                }
+            });
+        },
+        250
+    );
+
+    setTimeout(
+        () => {
+            confetti({
+                particleCount: 100,
+                angle: 120,
+                spread: 80,
+                origin: {
+                    x: 1,
+                    y: .7
+                }
+            });
+        },
+        450
+    );
+
+}
+
+function openGift() {
+
+    const gift =
+        document.querySelector(".gift");
+
+    const message =
+        document.getElementById("finalMessage");
+
+    gift.style.display =
+        "none";
+
+    message.classList.add("show");
+
+    celebrate();
+
+    setTimeout(
+        () => {
+            confetti({
+                particleCount: 250,
+                spread: 160,
+                origin: {
+                    x: .5,
+                    y: .4
+                }
+            });
+        },
+        700
+    );
+
+}
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+            nextPage();
+        }
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+            previousPage();
+        }
+
+    }
+);
+
+let touchStartX = 0;
+
+document.addEventListener(
+    "touchstart",
+    event => {
+        touchStartX =
+            event.changedTouches[0].screenX;
+    }
+);
+
+document.addEventListener(
+    "touchend",
+    event => {
+
+        const touchEndX =
+            event.changedTouches[0].screenX;
+
+        const difference =
+            touchStartX - touchEndX;
+
+        if (
+            Math.abs(difference) > 60
+        ) {
+
+            if (
+                difference > 0
+            ) {
+                nextPage();
+            } else {
+                previousPage();
+            }
+
+        }
+
+    }
+);
+
+dots.forEach(
+    (dot, index) => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+                showPage(index + 1);
+            }
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
